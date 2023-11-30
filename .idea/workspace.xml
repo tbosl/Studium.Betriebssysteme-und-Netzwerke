@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3695a706-00f1-4c2d-aefd-ac08f48390d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SimpleTCP/src/SimpleClientTCP.java" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleTCP/src/SimpleClientTCP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleTCP/src/SimpleServerTCP.java" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleTCP/src/SimpleServerTCP.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +36,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "onboarding.tips.debug.path": "D:/Studium/1. Semester/Betriessystem und Netzwerke/Netzwerke/Netzwerke_Uebungen/src/Main.java",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

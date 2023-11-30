@@ -1,0 +1,64 @@
+Index: SimpleTCP/src/SimpleServerTCP.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.io.*;\r\nimport java.net.*;\r\nimport java.util.*;\r\n\r\npublic class SimpleServerTCP {\r\n        static int PORT = 1234;\r\n\r\n\tpublic static void main(String args[]) throws Exception {\r\n\t\tSystem.out.printf(\"Server gestartet\\n\");\r\n\r\n                ServerSocket servsocket = new ServerSocket(PORT);\r\n\r\n                while (true) {\r\n                        Socket socket = servsocket.accept();\r\n                        protocol(socket);\r\n                }\r\n\t}\r\n\r\n\tpublic static void protocol(Socket socket) throws Exception {\r\n\r\n                Scanner inFromClient = new Scanner(socket.getInputStream());\r\n                PrintStream outToClient = new PrintStream(socket.getOutputStream());\r\n\r\n                String request = inFromClient.nextLine();\r\n                System.out.println(\"RECEIVED FROM CLIENT: \" + request);\r\n\r\n                outToClient.println(\"I am the server. This is what I heard from you:\");\r\n                outToClient.println(request);\r\n\r\n                socket.close();\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SimpleTCP/src/SimpleServerTCP.java b/SimpleTCP/src/SimpleServerTCP.java
+--- a/SimpleTCP/src/SimpleServerTCP.java	
++++ b/SimpleTCP/src/SimpleServerTCP.java	
+@@ -3,30 +3,34 @@
+ import java.util.*;
+ 
+ public class SimpleServerTCP {
+-        static int PORT = 1234;
++    static int PORT = 1234;
+ 
+-	public static void main(String args[]) throws Exception {
+-		System.out.printf("Server gestartet\n");
++    public static void main(String args[]) throws Exception {
++        System.out.printf("Server gestartet\n");
+ 
+-                ServerSocket servsocket = new ServerSocket(PORT);
++        ServerSocket servsocket = new ServerSocket(PORT);
+ 
+-                while (true) {
+-                        Socket socket = servsocket.accept();
+-                        protocol(socket);
+-                }
+-	}
++        while (true) {
++            Socket socket = servsocket.accept();
++            protocol(socket);
++        }
++    }
+ 
+-	public static void protocol(Socket socket) throws Exception {
++    public static void protocol(Socket socket) throws Exception {
+ 
+-                Scanner inFromClient = new Scanner(socket.getInputStream());
+-                PrintStream outToClient = new PrintStream(socket.getOutputStream());
+-
+-                String request = inFromClient.nextLine();
+-                System.out.println("RECEIVED FROM CLIENT: " + request);
++        Scanner inFromClient = new Scanner(socket.getInputStream());
++        PrintStream outToClient = new PrintStream(socket.getOutputStream());
++        while (inFromClient.hasNextLine()) {
++            String request = inFromClient.nextLine();
++            if (request.equals("END")) {
++                break;
++            }
++            System.out.println("RECEIVED FROM CLIENT: " + request);
+ 
+-                outToClient.println("I am the server. This is what I heard from you:");
+-                outToClient.println(request);
++            outToClient.println("I am the server. This is what I heard from you:");
++            outToClient.println(new StringBuilder(request).reverse());
+ 
+-                socket.close();
+-	}
++        }
++        socket.close();
++    }
+ }
