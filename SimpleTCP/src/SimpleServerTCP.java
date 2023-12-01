@@ -25,7 +25,7 @@ public class SimpleServerTCP {
         System.out.println("RECEIVED FROM CLIENT: " + request);
 
         outToClient.println("I am the server. This is what I heard from you:");
-        outToClient.println(new StringBuilder(request).reverse());
+        outToClient.println(request);
 
         socket.close();
     }
